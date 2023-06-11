@@ -14,6 +14,5 @@ export const init = ():InitReturn => {
     document.body.appendChild(renderer.domElement);
 
     camera.position.z = 2;
-    camera.position.y = 0.5;
     return {scene, camera, renderer}
 }
