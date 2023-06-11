@@ -35,6 +35,7 @@ export const addLight = (scene: Scene) => {
         rectLight.add(rectLightHelper);
     }
 
+    // добавление лампочек
     for (let i = -2; i < 4; i++) {
         addLamp({x: 1, y: 1.44, z: i * 1.44}, {x: 1, y: -2, z: i * 1.44}, Math.PI / 3, 0.5, 0.8, 0.8,)
         addLamp({x: -1, y: 1.44, z: i * 1.44}, {x: -1, y: -2, z: i * 1.44}, Math.PI / 3, 0.5, 0.8, 0.8)
