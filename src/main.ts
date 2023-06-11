@@ -11,7 +11,8 @@ const controls = createControls(camera, renderer)
 
 createAudience(sizes.width, sizes.height, sizes.length, scene)
 const chair = await loadObject("/chair.glb", scene)
-chair.position.y = -sizes.height/2
+chair.position.y = -sizes.height/2 + 0.01
+chair.scale.set(0.5, 0.5, 0.5)
 addLight(scene)
 addWhiteboard(scene)
 
