@@ -1,5 +1,6 @@
 import {AmbientLight, DirectionalLight, RectAreaLight, Scene, SpotLight} from "three";
 import {RectAreaLightHelper} from "three/examples/jsm/helpers/RectAreaLightHelper.js";
+import {sizes} from "../constants/sizes.ts";
 
 export const addLight = (scene: Scene) => {
     // равномерный свет просто чтобы всё было освещено хотя бы немного
@@ -36,9 +37,13 @@ export const addLight = (scene: Scene) => {
     }
 
     // добавление лампочек
-    for (let i = -2; i < 4; i++) {
-        addLamp({x: 1, y: 1.44, z: i * 1.44}, {x: 1, y: -2, z: i * 1.44}, Math.PI / 3, 0.5, 0.8, 0.8,)
-        addLamp({x: -1, y: 1.44, z: i * 1.44}, {x: -1, y: -2, z: i * 1.44}, Math.PI / 3, 0.5, 0.8, 0.8)
-    }
+    for (let i = -2; i < 4; i++)
+        for (let j = -sizes.width / Math.floor(sizes.width / 2) / 2; j < Math.floor(sizes.width / 2); j += 2.5)
+            addLamp(
+                {x: j, y: 1.44, z: i * (sizes.height - 0.1) / 2},
+                {x: j, y: -2, z: i * (sizes.height - 0.1) / 2},
+                Math.PI / 3, 0.5, 0.8, 0.8)
+
+
 
 }
