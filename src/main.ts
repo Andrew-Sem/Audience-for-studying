@@ -10,6 +10,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 camera.position.z = 2;
+camera.position.y = 0.5;
 
 loadModel("/chair.glb", scene)
 
