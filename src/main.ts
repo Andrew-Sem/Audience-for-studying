@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import {addLights} from "./lights.ts";
-import {loadObject} from "./loadObject.ts";
+import {addLight} from "./utils/addLight.ts";
+import {loadObject} from "./utils/loadObject.ts";
 
 // Create the scene, camera, and renderer
 const scene = new THREE.Scene();
@@ -14,7 +14,7 @@ camera.position.y = 0.5;
 
 const chair = await loadObject("/chair.glb", scene)
 
-addLights(scene)
+addLight(scene)
 
 // Create an animation loop
 function animate() {
