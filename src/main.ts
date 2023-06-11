@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import {addLights} from "./lights.ts";
-import {loadModel} from "./loadModel.ts";
+import {loadObject} from "./loadObject.ts";
 
 // Create the scene, camera, and renderer
 const scene = new THREE.Scene();
@@ -12,13 +12,15 @@ document.body.appendChild(renderer.domElement);
 camera.position.z = 2;
 camera.position.y = 0.5;
 
-loadModel("/chair.glb", scene)
+const chair = await loadObject("/chair.glb", scene)
 
 addLights(scene)
 
 // Create an animation loop
 function animate() {
     requestAnimationFrame(animate);
+
+    chair.rotation.y += 0.01
 
     renderer.render(scene, camera);
 }
