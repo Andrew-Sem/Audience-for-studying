@@ -11,7 +11,7 @@ export const addLight = (scene: Scene) => {
 
     const width = 0.8;
     const height = 0.8;
-    const intensity = 4;
+    const intensity = 1;
 
     for(let i = 0; i < 4; i++) {
         const rectLight = new RectAreaLight( 0xffffff, intensity,  width, height );

@@ -14,6 +14,7 @@ chair.position.y = -sizes.height/2
 addLight(scene)
 
 
+
 // Create an animation loop
 function animate() {
     requestAnimationFrame(animate);

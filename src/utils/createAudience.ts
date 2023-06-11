@@ -16,6 +16,11 @@ export const createAudience = (width: number, height: number, length: number, sc
     const floor = new Mesh(floorGeometry, floorMaterial);
     const ceiling = new Mesh(ceilingGeometry, ceilingMaterial);
 
+    walls.receiveShadow = true;
+    floor.receiveShadow = true;
+    ceiling.receiveShadow = true;
+
+
     // Установка позиций для стен, пола и потолка
     walls.position.set(0, 0, -length / 2);
     floor.position.set(0, -height / 2, 0);
@@ -30,6 +35,10 @@ export const createAudience = (width: number, height: number, length: number, sc
     const additionalWalls1 = new Mesh(additionalWallGeometry1, wallMaterial);
     const additionalWalls2 = new Mesh(additionalWallGeometry2, wallMaterial);
     const additionalWalls3 = new Mesh(additionalWallGeometry3, wallMaterial);
+
+    additionalWalls1.receiveShadow = true;
+    additionalWalls2.receiveShadow = true;
+    additionalWalls3.receiveShadow = true;
 
     // Установка позиций для дополнительных стен
     additionalWalls1.position.set(width / 2,  0, 0);
