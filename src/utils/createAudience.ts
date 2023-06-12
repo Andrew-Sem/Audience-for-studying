@@ -3,6 +3,7 @@ import {sizes} from "../constants/sizes.ts";
 import {addWindow} from "./addWindow.ts";
 import {substractWall} from "./substractWall.ts";
 import {createMesh} from "./createMesh.ts";
+import {createWindows} from "./createWindows.ts";
 
 export const createAudience = () => {
     // Создание материалов для стен, пола и потолка
@@ -25,7 +26,7 @@ export const createAudience = () => {
     walls[2].position.set(0, 0, sizes.depth/2)
     walls[3].position.set(-sizes.width/2, 0, 0)
 
-    const window = addWindow(0.1, 1.5, 1, sizes.width/2, 0, 2, 0.2);
-    walls[1] = substractWall(walls[1], window);
+
+    createWindows(walls)
 
 };
