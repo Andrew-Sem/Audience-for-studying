@@ -10,10 +10,10 @@ import {createWorldAround} from "./utils/createWorldAround.ts";
 
 const controls = createControls()
 createAudience()
-await generateChairs()
-await generateTables()
+generateChairs()
+generateTables()
 addWhiteboard()
-await createProjector()
+createProjector()
 toggleLight()
 createWorldAround()
 
