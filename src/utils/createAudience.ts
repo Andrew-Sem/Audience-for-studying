@@ -71,6 +71,8 @@ export const createAudience = (width: number, height: number, length: number, sc
 
     const addWindow = (width: number, height: number, depth: number, x: number, y: number, z: number, opacity: number): Mesh => {
         const windowGeometry = new BoxGeometry(width, height, depth)
+        windowGeometry.center()
+        windowGeometry.translate(x, y, z)
         const windowMaterial = new MeshPhongMaterial({
             transparent: true,
             opacity,
@@ -78,28 +80,29 @@ export const createAudience = (width: number, height: number, length: number, sc
         })
 
         const windowMesh = new Mesh(windowGeometry, windowMaterial)
-        windowMesh.position.set(x, y, z)
         scene.add(windowMesh)
 
         return windowMesh
     }
 
     const substractWall = (wall: Mesh, window: Mesh): Mesh => {
+        const wallGeometry = wall.geometry as BoxGeometry;
+        wallGeometry.center(); // вычисляем центр геометрии стены
+        wallGeometry.translate(wall.position.x, wall.position.y, wall.position.z); // перемещаем геометрию в мировые координаты стены
+
         const wallCSG = CSG.fromMesh(wall);
         const windowCSG = CSG.fromMesh(window);
 
         const substractedCSG = wallCSG.subtract(windowCSG);
-        const newWall = CSG.toMesh(substractedCSG, wall.matrix, wall.material);
+        const newWall = CSG.toMesh(substractedCSG, wall.matrixWorld, wall.material);
         scene.remove(wall);
         scene.add(newWall);
         return newWall;
     };
 
 
-    const window = addWindow(0.1, 1.5, 1.5, width/2, 0, 0, 0.2)
-
-    const newWall = substractWall(additionalWalls1, window)
-    newWall.position.x += sizes.width / 2
+    const window = addWindow(0.1, 1.5, 1, width/2, 0, 2, 0.2);
+    const newWall = substractWall(additionalWalls1, window);
 
     return room;
 };
