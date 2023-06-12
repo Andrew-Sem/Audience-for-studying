@@ -3,3 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.button{
+    position: absolute;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #0f172a;
+    transition: background-color 0.3s;
+    color: #f1f5f9;
+    font-size: 18px;
+    top: 1rem;
+    left: 1rem;
+}
+
+.button:hover{
+    background-color: #1e293b;
+}

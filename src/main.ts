@@ -1,4 +1,4 @@
-import {addLight} from "./utils/addLight.ts";
+import {toggleLight} from "./utils/addLight.ts";
 import {createAudience} from "./utils/createAudience.ts";
 import {createControls} from "./utils/createControls.ts";
 import {addWhiteboard} from "./utils/addWhiteboard.ts";
@@ -11,9 +11,12 @@ const controls = createControls()
 createAudience()
 await generateChairs()
 await generateTables()
-addLight()
 addWhiteboard()
-createProjector()
+await createProjector()
+toggleLight()
+
+const toggleLightButton = document.getElementById('button');
+toggleLightButton?.addEventListener('click', toggleLight);
 
 // Create an animation loop
 function animate() {
