@@ -5,6 +5,7 @@ import {addWhiteboard} from "./utils/addWhiteboard.ts";
 import {generateChairs} from "./utils/generateChairs.ts";
 import {camera, renderer, scene} from "./utils/init.ts";
 import {generateTables} from "./utils/generateTables.ts";
+import {createProjector} from "./utils/createProjector.ts";
 
 const controls = createControls()
 createAudience()
@@ -12,6 +13,7 @@ await generateChairs()
 await generateTables()
 addLight()
 addWhiteboard()
+createProjector()
 
 // Create an animation loop
 function animate() {
