@@ -18,7 +18,7 @@ export const addWhiteboard = (scene: Scene) => {
     const imagePlane = new Mesh(imageGeometry, imageMaterial);
 
     // Установка позиции для плоскости с изображением
-    imagePlane.position.set(0, 0, -sizes.length / 2+1);
+    imagePlane.position.set(0, 0, -sizes.depth / 2+1);
 
     // Добавление плоскости с изображением в сцену
     scene.add(imagePlane);
