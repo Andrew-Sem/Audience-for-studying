@@ -5,7 +5,7 @@ import {sizes} from "../constants/sizes.ts";
 export const generateTables = async() => {
     const table = await loadObject("/table.glb", scene)
     table.position.y = -sizes.height / 2 + 0.01
-    table.scale.set(0.1, 0.1, 0.1)
+    table.scale.set(0.15, 0.15, 0.15)
     table.rotation.y += Math.PI/2
     scene.remove(table)
 

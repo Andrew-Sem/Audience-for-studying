@@ -5,7 +5,7 @@ import {scene} from "./init.ts";
 export const generateChairs = async () => {
     const chair = await loadObject("/chair.glb", scene)
     chair.position.y = -sizes.height / 2 + 0.01
-    chair.scale.set(0.5, 0.5, 0.5)
+    chair.scale.set(0.6, 0.6, 0.6)
     scene.remove(chair)
 
     for(let i = -2; i < 4; i++){

@@ -4,6 +4,7 @@ import {addWindow} from "./addWindow.ts";
 import {substractWall} from "./substractWall.ts";
 import {createMesh} from "./createMesh.ts";
 import {createWindows} from "./createWindows.ts";
+import {createDoor} from "./createDoor.ts";
 
 export const createAudience = () => {
     // Создание материалов для стен, пола и потолка
@@ -26,6 +27,7 @@ export const createAudience = () => {
     walls[2].position.set(0, 0, sizes.depth/2)
     walls[3].position.set(-sizes.width/2, 0, 0)
 
+    createDoor()
 
     createWindows(walls)
 
