@@ -1,7 +1,7 @@
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js";
-import {Camera, Renderer} from "three";
+import {camera, renderer} from "./init.ts";
 
-export const createControls = (camera: Camera, renderer: Renderer): OrbitControls => {
+export const createControls = (): OrbitControls => {
     const controls = new OrbitControls(camera, renderer.domElement);
 
     // controls.update() must be called after any manual changes to the camera's transform

@@ -1,8 +1,8 @@
 import {loadObject} from "./loadObject.ts";
 import {sizes} from "../constants/sizes.ts";
-import {Scene} from "three";
+import {scene} from "./init.ts";
 
-export const generateChairs = async (scene: Scene) => {
+export const generateChairs = async () => {
     const chair = await loadObject("/chair.glb", scene)
     chair.position.y = -sizes.height / 2 + 0.01
     chair.scale.set(0.5, 0.5, 0.5)

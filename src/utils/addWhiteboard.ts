@@ -1,7 +1,8 @@
-import {LinearFilter, Mesh, MeshBasicMaterial, PlaneGeometry, Scene, TextureLoader} from "three";
+import {LinearFilter, Mesh, MeshBasicMaterial, PlaneGeometry, TextureLoader} from "three";
 import {sizes} from "../constants/sizes.ts";
+import {scene} from "./init.ts";
 
-export const addWhiteboard = (scene: Scene) => {
+export const addWhiteboard = () => {
     const textureLoader = new TextureLoader();
     const texture = textureLoader.load("/whiteboard.png");
 

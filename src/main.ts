@@ -1,19 +1,15 @@
 import {addLight} from "./utils/addLight.ts";
-import {init} from "./utils/init.ts";
 import {createAudience} from "./utils/createAudience.ts";
 import {createControls} from "./utils/createControls.ts";
 import {addWhiteboard} from "./utils/addWhiteboard.ts";
 import {generateChairs} from "./utils/generateChairs.ts";
+import {camera, renderer, scene} from "./utils/init.ts";
 
-const {scene, camera, renderer} = init()
-
-const controls = createControls(camera, renderer)
-
-createAudience(scene)
-await generateChairs(scene)
-addLight(scene)
-addWhiteboard(scene)
-
+const controls = createControls()
+createAudience()
+await generateChairs()
+addLight()
+addWhiteboard()
 
 // Create an animation loop
 function animate() {

@@ -1,8 +1,9 @@
-import {AmbientLight, DirectionalLight, RectAreaLight, Scene, SpotLight} from "three";
+import {AmbientLight, DirectionalLight, RectAreaLight, SpotLight} from "three";
 import {RectAreaLightHelper} from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 import {sizes} from "../constants/sizes.ts";
+import {scene} from "./init.ts";
 
-export const addLight = (scene: Scene) => {
+export const addLight = () => {
     // равномерный свет просто чтобы всё было освещено хотя бы немного
     const light = new AmbientLight(0x404040, 1);
     scene.add(light);

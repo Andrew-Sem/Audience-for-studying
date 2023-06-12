@@ -6,7 +6,8 @@ type InitReturn = {
     renderer: Renderer
 }
 
-export const init = ():InitReturn => {
+
+const init = ():InitReturn => {
     const scene = new Scene();
     const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new WebGLRenderer();
@@ -18,3 +19,7 @@ export const init = ():InitReturn => {
     camera.position.z = 2;
     return {scene, camera, renderer}
 }
+
+export const {scene, camera, renderer} = init()
+
+
