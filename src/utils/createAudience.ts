@@ -1,47 +1,8 @@
-import {BoxGeometry, DoubleSide, Mesh, MeshPhongMaterial} from "three";
+import {DoubleSide, Mesh, MeshPhongMaterial} from "three";
 import {sizes} from "../constants/sizes.ts";
-import {CSG} from "three-csg-ts";
-import {scene} from "./init.ts";
-
-const addWindow = (width: number, height: number, depth: number, x: number, y: number, z: number, opacity: number): Mesh => {
-    const windowGeometry = new BoxGeometry(width, height, depth)
-    windowGeometry.center()
-    windowGeometry.translate(x, y, z)
-    const windowMaterial = new MeshPhongMaterial({
-        transparent: true,
-        opacity,
-        side: DoubleSide
-    })
-
-    const windowMesh = new Mesh(windowGeometry, windowMaterial)
-    scene.add(windowMesh)
-
-    return windowMesh
-}
-
-const substractWall = (wall: Mesh, window: Mesh): Mesh => {
-    const wallGeometry = wall.geometry as BoxGeometry;
-    wallGeometry.center(); // вычисляем центр геометрии стены
-    wallGeometry.translate(wall.position.x, wall.position.y, wall.position.z); // перемещаем геометрию в мировые координаты стены
-
-    const wallCSG = CSG.fromMesh(wall);
-    const windowCSG = CSG.fromMesh(window);
-
-    const substractedCSG = wallCSG.subtract(windowCSG);
-    const newWall = CSG.toMesh(substractedCSG, wall.matrixWorld, wall.material);
-    scene.remove(wall);
-    scene.add(newWall);
-    return newWall;
-};
-
-const createMesh = (x: number, y: number, z: number, width: number, height: number, depth: number, material: MeshPhongMaterial): Mesh => {
-    const meshGeometry = new BoxGeometry(width, height, depth);
-    const mesh = new Mesh(meshGeometry, material);
-    mesh.position.set(x, y, z);
-    mesh.receiveShadow = true;
-    scene.add(mesh)
-    return mesh;
-};
+import {addWindow} from "./addWindow.ts";
+import {substractWall} from "./substractWall.ts";
+import {createMesh} from "./createMesh.ts";
 
 export const createAudience = () => {
     // Создание материалов для стен, пола и потолка
