@@ -1,7 +1,5 @@
 import {DoubleSide, Mesh, MeshPhongMaterial} from "three";
 import {sizes} from "../constants/sizes.ts";
-import {addWindow} from "./addWindow.ts";
-import {substractWall} from "./substractWall.ts";
 import {createMesh} from "./createMesh.ts";
 import {createWindows} from "./createWindows.ts";
 import {createDoor} from "./createDoor.ts";
@@ -12,8 +10,8 @@ export const createAudience = () => {
     const floorMaterial = new MeshPhongMaterial({color: 0xaaaaaa});
     const ceilingMaterial = new MeshPhongMaterial({color: 0xdddddd});
 
-    const floor = createMesh(0, -sizes.height/2, 0, sizes.width, 0.01, sizes.depth, floorMaterial)
-    const ceiling = createMesh(0, sizes.height/2, 0, sizes.width, 0.01, sizes.depth, ceilingMaterial)
+    createMesh(0, -sizes.height/2, 0, sizes.width, 0.01, sizes.depth, floorMaterial)
+    createMesh(0, sizes.height/2, 0, sizes.width, 0.01, sizes.depth, ceilingMaterial)
     let walls: Mesh[] = []
     for(let i = 0; i < 4; i++){
         const width = i % 2 ? 0.01 : sizes.width
