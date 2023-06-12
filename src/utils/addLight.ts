@@ -1,7 +1,8 @@
-import {AmbientLight, DirectionalLight, RectAreaLight, SpotLight} from "three";
+import {AmbientLight, Color, DirectionalLight, RectAreaLight, SpotLight} from "three";
 import {RectAreaLightHelper} from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 import {sizes} from "../constants/sizes.ts";
 import {scene} from "./init.ts";
+import {grassMaterial, skyMaterial} from "./createWorldAround.ts";
 
 // функция для добавления лампочек
 const createLamp = (
@@ -42,7 +43,7 @@ for (let i = -2; i < 4; i++)
             {x: j, y: -2, z: i * (sizes.height - 0.1) / 2},
             Math.PI / 3, 0.5, 0.8, 0.8))
 
-let lightsAdded = true;
+let lightsAdded = false;
 
 const addLight = () => {
     scene.add(directionalLight);
@@ -51,6 +52,8 @@ const addLight = () => {
         scene.add(lamp.spotLight.target)
         scene.add(lamp.rectLight)
     })
+    grassMaterial.color = new Color(1, 1, 1);
+    skyMaterial.color = new Color(1, 1, 1)
     lightsAdded = true;
 }
 
@@ -62,6 +65,8 @@ const removeLight = () => {
             scene.remove(lamp.spotLight.target)
             scene.remove(lamp.rectLight)
         })
+        grassMaterial.color = new Color(0.01, 0.01, 0.01);
+        skyMaterial.color = new Color(0.01, 0.01, 0.01)
         lightsAdded = false;
     }
 }

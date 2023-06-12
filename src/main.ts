@@ -6,6 +6,7 @@ import {generateChairs} from "./utils/generateChairs.ts";
 import {camera, renderer, scene} from "./utils/init.ts";
 import {generateTables} from "./utils/generateTables.ts";
 import {createProjector} from "./utils/createProjector.ts";
+import {createWorldAround} from "./utils/createWorldAround.ts";
 
 const controls = createControls()
 createAudience()
@@ -14,6 +15,7 @@ await generateTables()
 addWhiteboard()
 await createProjector()
 toggleLight()
+createWorldAround()
 
 const toggleLightButton = document.getElementById('button');
 toggleLightButton?.addEventListener('click', toggleLight);
